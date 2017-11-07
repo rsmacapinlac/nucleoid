@@ -44,11 +44,11 @@ Send a post request to ```APP_HOST/config/dnb``` with ```value=[true|false]```
 
 # Todo's
 
-[ ] Continous Integration / Testing
-[ ] Rake task for sending mail
-[ ] Some sort of a front-end
-[ ] Expiry of numbers that are not being used
-[ ] 1-click deployment to Heroku
+* [ ] Continous Integration / Testing
+* [ ] Rake task for sending mail
+* [ ] Some sort of a front-end
+* [ ] Expiry of numbers that are not being used
+* [ ] 1-click deployment to Heroku
 
 ### Assumptions
 
