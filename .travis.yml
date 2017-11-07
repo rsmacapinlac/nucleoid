@@ -1,0 +1,17 @@
+language: ruby
+services:
+  - postgresql
+bundler_args: --without development
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+script:
+  - bundle exec rake db:schema:load
+  - bundle exec rake db:test:prepare
+  - bundle exec rake spec
+env:
+  - RACK_ENV=test
+after_failure:
+  - "cat ./config/database.yml"
+  - "bundle exec rake -T"
+  - "bundle exec rake --version"
