@@ -1,6 +1,5 @@
 require 'twilio-ruby'
 require './lib/mgwen/phone'
-require 'ngrok/tunnel'
 
 module Mgwen
   class Setup
@@ -16,6 +15,7 @@ module Mgwen
     end
 
     def setup_development_server
+      require 'ngrok/tunnel'
       options = {addr: 9292}
       options[:config] = ENV['HOME'] + '/.ngrok2/ngrok.yml'
 

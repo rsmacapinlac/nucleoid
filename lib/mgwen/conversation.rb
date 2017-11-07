@@ -47,6 +47,7 @@ module Mgwen
 
     def self.start_conversation_with_number(session, from_number)
       Session.transaction do
+        phone = Mgwen::Phone.new
         forwarder_number = Mgwen::Config.instance.get("FORWARDING_NUMBER")
         phone.send_message(session.phone_number,
                            forwarder_number,
