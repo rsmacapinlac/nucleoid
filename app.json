@@ -1,0 +1,26 @@
+{
+  "name": "Nucleoid",
+  "description": "Is a web application bundled with some scripts to build a low cost pay as you go cellphone in the cloud.",
+  "repository": "https://github.com/rsmacapinlac/nucleoid",
+  "success_url": "/settings",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
+  "env": {
+    "TWILIO_ACCOUNT_SID": {
+      "description": "Your Twilio account SID",
+      "value": ""
+    },
+    "TWILIO_AUTH_TOKEN": {
+      "description": "Your Twilio account AUTH TOKEN",
+      "value": ""
+    },
+    "PHONE_NUMBER_SID": {
+      "description": "Search for a phone number and add it's SID here",
+      "value": ""
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
