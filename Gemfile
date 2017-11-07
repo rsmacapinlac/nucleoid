@@ -11,6 +11,7 @@ gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'phony'
 gem 'rake'
+gem 'rspec'
 
 group :development do
   gem 'tux'
@@ -21,7 +22,6 @@ end
 
 group :test do
   gem 'faker'
-  gem 'rspec'
   gem 'rack-test'
   gem 'email_spec'
   gem 'capybara'
