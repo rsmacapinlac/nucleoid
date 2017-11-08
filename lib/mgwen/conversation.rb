@@ -7,6 +7,16 @@ module Mgwen
       @config = config
     end
 
+    def send_masked_message(to_number, body)
+      session = Session.find_by(phone_number: to_number)
+      unless session.nil?
+        phone = Mgwen::Phone.new
+        phone.send_message(@config.get("NUCLEOID_NUMBER"),
+                           session.from_number,
+                           body)
+      end
+    end
+
     def find_or_create(from_number)
       available_sessions = Session.where(from_number: from_number)
 
