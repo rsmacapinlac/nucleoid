@@ -1,5 +1,7 @@
 # Nucleoid
 
+[![Build Status](https://travis-ci.org/rsmacapinlac/nucleoid.svg?branch=master)](https://travis-ci.org/rsmacapinlac/nucleoid)
+
 Nucleoid is a web application bundled with some scripts to build a low cost pay
 as you go cellphone in the cloud.
 
@@ -44,10 +46,10 @@ Send a post request to ```APP_HOST/config/dnb``` with ```value=[true|false]```
 
 # Todo's
 
-* [ ] Continous Integration / Testing
-* [ ] Rake task for sending mail
-* [ ] Some sort of a front-end
-* [ ] Expiry of numbers that are not being used
+* [x] Continous Integration / Testing
+* [ ] Sending message to email that have been caught during Do not distrub mode
+* [ ] Some sort of a front-end (maybe angular)
+* [ ] Expiry of conversation numbers that are not being used (through a Rake task?)
 * [ ] 1-click deployment to Heroku
 
 ### Assumptions
