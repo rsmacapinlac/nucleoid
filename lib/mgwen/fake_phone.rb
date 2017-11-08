@@ -3,10 +3,19 @@ require 'securerandom'
 
 module Mgwen
   class FakeMessage
-    def initialize(num, msg, app)
-      @num = num
-      @msg = msg
-      @app = app
+    def initialize(from, to, message)
+      @from = from
+      @to = to
+      @message = message
+    end
+    def from
+      @from
+    end
+    def to
+      @to
+    end
+    def body
+      @message
     end
   end
 
@@ -24,8 +33,9 @@ module Mgwen
   end
 
   class FakePhone
-      @@messages = []
-      @@provisioned_numbers = []
+    @@messages = []
+    @@provisioned_numbers = []
+
     def initialize
     end
 
@@ -35,8 +45,9 @@ module Mgwen
       return @phone_number
     end
 
-    def send_message(num, msg, app)
-      @@messages << FakeMessage.new(num, msg, app)
+    def send_message(from_number, to_number, body)
+      message = FakeMessage.new(from_number, to_number, body)
+      @@messages.push message
     end
 
     def self.provisioned_numbers
