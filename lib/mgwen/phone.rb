@@ -21,9 +21,9 @@ module Mgwen
 
     def provision_phone_number(area_code, app_public_host)
       numbers = @client.api.available_phone_numbers('CA').local.list(voice_enabled: 'false',
-                                                                    sms_enabled: 'true',
-                                                                    mms_enabled: 'true',
-                                                                    area_code: area_code)
+                                                                     sms_enabled: 'true',
+                                                                     mms_enabled: 'true',
+                                                                     area_code: area_code)
 
 
       phone_number = numbers[0].phone_number

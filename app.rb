@@ -57,18 +57,15 @@ post '/receiver/voicemail' do
 end
 
 post '/receiver/conversation' do
-  phone = Mgwen::Phone.new
-  # should only accept incoming from a user's forwarding phone number
-  if phone.is_forwarder?(params['From'])
-    # find the conversation that this is assigned to
-    conversation = Conversation.find_by(session_phone_number: params['To'])
-    # send a message to the conversations' from_number from the gmwn_number
-    unless conversation.nil?
-      phone.send_message(settings.mgwen_number,
-                         conversation.from_number,
-                         params['Body'])
-    end
+  content_type 'text/xml'
+  config = Mgwen::Config.instance
+  forwarding_number = config.get("FORWARDING_NUMBER").to_s
+  if forwarding_number.eql? params['From']
+    conversation = Mgwen::Conversation.new(config)
+    conversation.send_masked_message(params['To'], params['Body'])
   end
+  Twilio::TwiML::VoiceResponse.new do |r|
+  end.to_s
 end
 
 post '/receiver/message' do
