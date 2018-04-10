@@ -15,9 +15,9 @@ persistent data / settings and RSpec for testing.
 1. Install ngrok (somewhere in your PATH)
 2. Setup a twilio account and get a phone number. You need: account_sid,
    auth_token and your phone number's sid
-3. Create a .env file from the env.example file and fill in the values from step
-   2
-4. Start the development server ```bundle exec rerun rackup```
+3. Create a .env file from the env.example file and fill in the values from step 2
+4. Run ```rake db:migrate``` to create the database
+5. Start the development server ```bundle exec rerun rackup```
 
 Once the development server is started this will update the twilio phone number settings with ngrok's url and the phone number should work.
 

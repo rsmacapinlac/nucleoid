@@ -88,3 +88,11 @@ post '/config/:name' do
   config.set(params['name'], params['value'])
 end
 
+get '/config/:name' do
+  config = Mgwen::Config.instance
+  value = config.get(params['name'])
+  "name: #{params['name']} value: #{value}"
+end
+
+get '/' do
+end
